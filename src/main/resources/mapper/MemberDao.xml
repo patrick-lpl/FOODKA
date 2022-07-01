@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.crud.dao.MemberDao">
+
+    <resultMap type="com.atguigu.crud.entity.Member" id="MemberMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="msName" column="ms_name" jdbcType="VARCHAR"/>
+        <result property="sex" column="sex" jdbcType="VARCHAR"/>
+        <result property="age" column="age" jdbcType="INTEGER"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="cardFlag" column="cardFlag" jdbcType="VARCHAR"/>
+        <result property="point" column="point" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="MemberMap">
+        select
+          id, ms_name, sex, age, phone, create_time,password,point
+        from member
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="findList" resultMap="MemberMap">
+        select
+          m.id, m.ms_name, m.sex, m.age, m.phone,m.password, if(c=0 or c is null,'N','Y') cardFlag,DATE_FORMAT(m.create_time,'%Y-%m-%d %H:%i:%s') create_time,
+               ifnull(m.point,0) point
+        from member m
+        left join (
+            select ms_id,count(1) c from member_card where status = '1' group by ms_id
+        ) t on m.id = t.ms_id
+        <where>
+            <if test="id != null">
+                and m.id = #{id}
+            </if>
+            <if test="msName != null and msName != ''">
+                and m.ms_name = #{msName}
+            </if>
+            <if test="sex != null and sex != ''">
+                and m.sex = #{sex}
+            </if>
+            <if test="age != null">
+                and m.age = #{age}
+            </if>
+            <if test="phone != null and phone != ''">
+                and m.phone = #{phone}
+            </if>
+            <if test="createTime != null">
+                and m.create_time = #{createTime}
+            </if>
+        </where>
+        order by m.create_time desc
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into member(ms_name, sex, age, phone, password,create_time,point)
+        values (#{msName}, #{sex}, #{age}, #{phone}, #{password},now(),#{point})
+    </insert>
+
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update member
+        <set>
+            <if test="msName != null and msName != ''">
+                ms_name = #{msName},
+            </if>
+            <if test="sex != null and sex != ''">
+                sex = #{sex},
+            </if>
+            <if test="age != null">
+                age = #{age},
+            </if>
+            <if test="phone != null and phone != ''">
+                phone = #{phone},
+            </if>
+            <if test="point != null and point != ''">
+                point = #{point},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from member where id = #{id}
+    </delete>
+
+</mapper>
+

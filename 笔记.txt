@@ -1,0 +1,9 @@
+管理员
+http://localhost:8888/
+
+admin 123
+
+会员
+http://localhost:8888/member/toMemberRegister
+
+默认 123456/12345 都试试

@@ -1,0 +1,5 @@
+会员登录：
+http://localhost:8888/member/toMemberLogin
+
+会员注册：
+http://localhost:8888/member/toMemberRegister
