@@ -215,12 +215,12 @@ public class MemberController {
         user.setUserType("user");
         String encodeStr = Base64.getEncoder().encodeToString(password.getBytes());
         if (!encodeStr.equals(loginUser.getPassword())) { // equals函数循环判断users的List中的密码是否匹配
-            return AjaxResult.error("密码错误");
+            return AjaxResult.error("用户名或密码错误");
         }
-        String encodeStr1 = Base64.getEncoder().encodeToString(username.getBytes());
-        if (!encodeStr1.equals(loginUser.getPhone())) { // equals函数循环判断users的List中的用户名是否匹配
-            return AjaxResult.error("用户名错误");
-        }
+//        String encodeStr1 = Base64.getEncoder().encodeToString(username.getBytes());
+//        if (!encodeStr1.equals(loginUser.getPhone())) { // equals函数循环判断users的List中的用户名是否匹配
+//            return AjaxResult.error("用户名错误");
+//        }
         user.setUid(loginUser.getId().toString());
         user.setUsername(loginUser.getMsName());
         HttpSession httpSession = request.getSession();
