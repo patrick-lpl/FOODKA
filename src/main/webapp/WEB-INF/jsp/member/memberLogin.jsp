@@ -19,6 +19,8 @@
   <script type="text/javascript" src="${APP_PATH }/static/js/jquery-3.6.0.js"></script>
 </head>
 
+<%--会员登录--%>
+
 <style>
   html {
     width: 100%;
@@ -58,6 +60,7 @@
   .container{
     background-color: #FFFFFF;
     width: 450px;
+    height: 500px;
     border-radius: 25px;
 
   }
@@ -70,22 +73,23 @@
   <form class="form-signin" style="max-width: 400px;margin:0 auto">
 
     <!-- <h2 class="form-signin-heading text-center"style="font-family:YouYuan"><font color="#0b0b0b" size="7">火锅店管理系统</font></h2> -->
+    <a href="../login.jsp" style="float: right;font-family: YouYuan">管理员登录</a>
 
     <br>
 
     <label for="username" class="sr-only">用户名</label>
-    <input type="text" id="username" class="form-control"  style="margin-top: 50px;" placeholder="用户名" required autofocus>
+    <input type="text" id="username" class="form-control"  style="margin-top: 10px;" placeholder="用户名" required autofocus>
 
     <br>
 
     <label for="password" class="sr-only">密码</label>
-    <input type="password" id="password" class="form-control"  style="margin-top: 50px;" placeholder="密码" required>
+    <input type="password" id="password" class="form-control"  style="margin-top: 10px;" placeholder="密码" required>
 
     <br>
 
     <div class="box">
 
-      <input type="text" id="input" placeholder="请输入验证码 " style="margin-top: 30px;" class="form-control" required>
+      <input type="text" id="input" placeholder="请输入验证码 " style="margin-top: 10px;" class="form-control" required>
 
 
       <!-- <div class="block_box">
@@ -97,7 +101,8 @@
       <%--        <button  class="btn  btn-primary " style="float: right; margin-top: 30px; margin-right: 30px;" type="submit" >我不是机器人</button>--%>
 
 
-      <button id="loginBtn" class="btn btn-lg btn-primary btn-block" style="margin-top: 50px;" type="submit">登录</button>
+      <button id="loginBtn" class="btn btn-lg btn-primary btn-block" style="margin-top: 10px;" type="submit">登录</button>
+      <button id="registerBtn" class="btn btn-lg btn-default btn-block" style="margin-top: 30px;" type="submit">注册</button>
     </div>
 
 
@@ -110,6 +115,11 @@
 </body>
 
 <script>
+  // 跳转到注册界面
+  $("#registerBtn").click(function (){
+    location.href = "${pageContext.request.contextPath}/member/toMemberRegister?t="+new Date().getTime();
+  })
+
   var a ;
   class Verification {
     constructor() {
