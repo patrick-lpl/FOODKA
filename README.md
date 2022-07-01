@@ -1,3 +1,3 @@
-# Huoguo-v1
-7.4v1
-## test lxl
+## Huoguo-v1
+2022.7.1
+此次版本是7.4的v1
