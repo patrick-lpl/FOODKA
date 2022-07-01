@@ -73,7 +73,7 @@
   <form class="form-signin" style="max-width: 400px;margin:0 auto">
 
     <!-- <h2 class="form-signin-heading text-center"style="font-family:YouYuan"><font color="#0b0b0b" size="7">火锅店管理系统</font></h2> -->
-    <a href="../login.jsp" style="float: right;font-family: YouYuan">管理员登录</a>
+    <a id="adminBtn" style="float: right;font-family: YouYuan">管理员登录</a>
 
     <br>
 
@@ -120,6 +120,12 @@
     location.href = "${pageContext.request.contextPath}/member/toMemberRegister?t="+new Date().getTime();
   })
 
+// 跳转至管理员登录界面
+  $("#adminBtn").click(function (){
+    location.href = "${pageContext.request.contextPath}/?t="+new Date().getTime();
+  })
+
+
   var a ;
   class Verification {
     constructor() {
@@ -157,7 +163,7 @@
     // 检测验证码是否符合
     check() {
       if (this.code === this.input.value.trim().toLowerCase()) {
-        alert('验证码正确！')
+        // alert('验证码正确！')
         a='T'
       } else {
         // alert('验证码错误！！！')
@@ -256,7 +262,7 @@
           alert('用户名或密码错误！！！')
         }
         else {
-          alert('登陆成功！')
+          // alert('登陆成功！')
           location.href = "${pageContext.request.contextPath}/toMain"
         }
       }

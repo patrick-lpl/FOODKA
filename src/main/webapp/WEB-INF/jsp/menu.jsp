@@ -28,11 +28,11 @@
         <c:if test="${loginUser.userType == 'user'}">
             <li <c:if test="${page == 'homePage'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">我的主页</a></li>
             <li <c:if test="${page == 'myMemberCard'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/member/toMyMemberCard">我的会员卡</a></li>
-            <li <c:if test="${page == 'myPointExchangeDef'}"> class="active" </c:if> >积分兑换</a></li>
-            <li <c:if test="${page == 'myPointExchange'}"> class="active" </c:if> >我的积分兑换</a></li>
-            <li <c:if test="${page == 'myOrder'}"> class="active" </c:if> >我的消费订单</a></li>
-            <li <c:if test="${page == 'myCardLog'}"> class="active" </c:if> >我的会员卡日志</a></li>
-            <li <c:if test="${page == 'myPointLog'}"> class="active" </c:if> >我的积分变动</a></li>
+            <li <c:if test="${page == 'myPointExchangeDef'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">积分兑换</a></li>
+            <li <c:if test="${page == 'myPointExchange'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">我的积分兑换</a></li>
+            <li <c:if test="${page == 'myOrder'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">我的消费订单</a></li>
+            <li <c:if test="${page == 'myCardLog'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">我的会员卡日志</a></li>
+            <li <c:if test="${page == 'myPointLog'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">我的积分变动</a></li>
             <li <c:if test="${page == 'myInfo'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/member/toMyInfo">我的会员信息</a></li>
             <li <c:if test="${page == 'myRePassword'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/member/toMyRePassword">修改密码</a></li>
         </c:if>
