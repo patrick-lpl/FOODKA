@@ -2,127 +2,114 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <%
-      pageContext.setAttribute("APP_PATH",request.getContextPath());
-    %>>
-    <title>火锅店会员管理系统——会员</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <%
+    pageContext.setAttribute("APP_PATH",request.getContextPath());
+  %>>
+  <title>火锅店会员管理系统——会员</title>
 
-    <link href="${APP_PATH }/static/bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${APP_PATH }/static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-    <link href="${APP_PATH }/static/css/signin.css" rel="stylesheet">
-    <script type="text/javascript" src="${APP_PATH }/static/js/jquery-3.6.0.js"></script>
-  </head>
+  <link href="${APP_PATH }/static/bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${APP_PATH }/static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+  <link href="${APP_PATH }/static/css/signin.css" rel="stylesheet">
+  <script type="text/javascript" src="${APP_PATH }/static/js/jquery-3.6.0.js"></script>
+</head>
 
-<%--  会员登录--%>
+<style>
+  html {
+    width: 100%;
+    height: 100%;
+  }
+  body {
+    width: 100%;
+    background: #fff url("../../../static/img/login_bg.webp") no-repeat;
+    background-size: 100% 100%;
+  }
+  .box {
+    width: 370px;
+    height: 130px;
+    margin: 10px auto;
 
-  <style>
-    html {
-      width: 100%;
-      height: 100%;
-    }
-    body {
-      width: 100%;
-      background: #fff url("../../../static/img/login_bg.webp") no-repeat;
-      background-size: 100% 100%;
-    }
-    .box {
-      width: 370px;
-      height: 130px;
-      margin: 10px auto;
+  }
 
-    }
+  .box #myCanvas {
+    margin-top: 10px;
+    cursor: pointer;
+    height: 70px;
 
-    .box #myCanvas {
-      margin-top: 10px;
-      cursor: pointer;
-      height: 70px;
+  }
 
-    }
+  .btn {
+    margin: 10px auto;
+  }
 
-    .btn {
-      margin: 10px auto;
-    }
+  /* 	.block_box{
+          width: 90px;
+          height: 10px;
+          float: left;
+          border: 1px #67B168;
 
-    /* 	.block_box{
-            width: 90px;
-            height: 10px;
-            float: left;
-            border: 1px #67B168;
+      } */
 
-        } */
+  .container{
+    background-color: #FFFFFF;
+    width: 450px;
+    border-radius: 25px;
 
-    .container{
-      background-color: #FFFFFF;
-      width: 450px;
-      border-radius: 25px;
-      height: 500px;
+  }
+</style>
+<body>
 
-    }
-  </style>
-  <body>
+<h1 class="form-signin-heading text-center"style="font-weight: bolder; font-family:YouYuan"><font color="#0b0b0b" size="7">火锅店管理系统</font><span style="font-size: 16px;" style="font-weight: bolder; font-family:YouYuan">| 会员登录</span></h1>
+<div class="container">
 
-  <h1 class="form-signin-heading text-center"style="font-weight: bolder; font-family:YouYuan"><font color="#0b0b0b" size="7">火锅店管理系统</font><span style="font-size: 16px;" style="font-weight: bolder; font-family:YouYuan">| 会员登录</span></h1>
-  <div class="container">
+  <form class="form-signin" style="max-width: 400px;margin:0 auto">
 
-    <form class="form-signin" style="max-width: 400px;margin:0 auto">
+    <!-- <h2 class="form-signin-heading text-center"style="font-family:YouYuan"><font color="#0b0b0b" size="7">火锅店管理系统</font></h2> -->
 
-      <!-- <h2 class="form-signin-heading text-center"style="font-family:YouYuan"><font color="#0b0b0b" size="7">火锅店管理系统</font></h2> -->
+    <br>
 
-      <br>
+    <label for="username" class="sr-only">用户名</label>
+    <input type="text" id="username" class="form-control"  style="margin-top: 50px;" placeholder="用户名" required autofocus>
 
-      <label for="username" class="sr-only">用户名</label>
-      <input type="text" id="username" class="form-control"  style="margin-top: 10px;" placeholder="用户名" required autofocus>
+    <br>
 
-      <br>
+    <label for="password" class="sr-only">密码</label>
+    <input type="password" id="password" class="form-control"  style="margin-top: 50px;" placeholder="密码" required>
 
-      <label for="password" class="sr-only">密码</label>
-      <input type="password" id="password" class="form-control"  style="margin-top: 10px;" placeholder="密码" required>
+    <br>
 
-      <br>
+    <div class="box">
 
-      <div class="box">
-
-        <input type="text" id="input" placeholder="请输入验证码 " style="margin-top: 10px;" class="form-control" required>
+      <input type="text" id="input" placeholder="请输入验证码 " style="margin-top: 30px;" class="form-control" required>
 
 
-        <!-- <div class="block_box">
-        </div> -->
+      <!-- <div class="block_box">
+      </div> -->
 
-        <canvas id="myCanvas" width="100" height="40" title="看不清，更换验证码" ></canvas>
+      <canvas id="myCanvas" width="100" height="40" title="看不清，更换验证码" ></canvas>
 
-        <!-- <br /> -->
-<%--        <button  class="btn  btn-primary " style="float: right; margin-top: 30px; margin-right: 30px;" type="submit" >我不是机器人</button>--%>
+      <!-- <br /> -->
+      <%--        <button  class="btn  btn-primary " style="float: right; margin-top: 30px; margin-right: 30px;" type="submit" >我不是机器人</button>--%>
 
 
-        <button id="loginBtn" class="btn btn-lg btn-primary btn-block" style="margin-top: 50px;" type="submit">登录</button>
-        <a id="toRegister" href="javascript:void(0)" class="btn btn-lg btn-default btn-block" style="margin-top: 15px;">前往注册</a>
-      </div>
+      <button id="loginBtn" class="btn btn-lg btn-primary btn-block" style="margin-top: 50px;" type="submit">登录</button>
+    </div>
 
 
 
-<%--      <button id="loginBtn" class="btn btn-lg btn-primary btn-block" style="margin-top: 50px;" type="submit">登录</button>--%>
+    <%--      <button id="loginBtn" class="btn btn-lg btn-primary btn-block" style="margin-top: 50px;" type="submit">登录</button>--%>
 
-    </form>
-  <a id="toUserLogin" href="javascript:void(0)" style="font-family: YouYuan;float: right">管理员登录</a>
-  </div>
-  </body>
+  </form>
+
+</div>
+</body>
 
 <script>
-
-  $("#toRegister").click(function (){
-    location.href = "${pageContext.request.contextPath}/member/toMemberRegister?t="+new Date().getTime();
-  })
-
-  $("#toUserLogin").click(function (){
-    location.href = "${pageContext.request.contextPath}/?t="+new Date().getTime();
-  })
-
   var a ;
   class Verification {
     constructor() {
@@ -160,10 +147,10 @@
     // 检测验证码是否符合
     check() {
       if (this.code === this.input.value.trim().toLowerCase()) {
-        alert('提交成功！')
+        alert('验证码正确！')
         a='T'
       } else {
-        alert('没长眼睛？')
+        // alert('验证码错误！！！')
         this.input.value = ''
         this.init()
         a= 'F'
@@ -235,7 +222,7 @@
     }
   }
   // 实例化验证码功能
- new Verification()
+  new Verification()
 
 
   $("#toRegister").click(function (){
@@ -253,9 +240,13 @@
       data: data,
       dataType: "json",
       success: function(data){
-        if (data.code == '500'||a=='F') {
-          // alert(data.msg)
-        }else {
+        if (a=='F') {
+          alert('验证码错误！！')}
+        else if(data.code == '500'){
+          alert('用户名或密码错误！！！')
+        }
+        else {
+          alert('登陆成功！')
           location.href = "${pageContext.request.contextPath}/toMain"
         }
       }
