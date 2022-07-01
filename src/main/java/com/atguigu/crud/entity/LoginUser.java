@@ -1,6 +1,7 @@
 package com.atguigu.crud.entity;
 
-public class LoginUser {
+public class LoginUser { // 用户登陆类
+    // 专门用来实现用户登陆功能的实体类
 
     private String uid;
 

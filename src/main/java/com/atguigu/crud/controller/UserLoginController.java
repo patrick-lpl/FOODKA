@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class UserLoginController {
     private UserService userService;
 
     /**
-     * 用户登录
+     * 管理员用户登录
      * @param request
      * @return
      */
@@ -34,6 +35,7 @@ public class UserLoginController {
     @RequestMapping("userLogin")
     public AjaxResult userLogin(HttpServletRequest request){
 
+        // 用户名密码判断NULL
         String username = request.getParameter("username");
         if (StringUtils.isEmpty(username)) {
             return AjaxResult.error("用户名不能为空");
@@ -43,19 +45,22 @@ public class UserLoginController {
             return AjaxResult.error("密码不能为空");
         }
 
-        LoginUser user = new LoginUser();
-        // 管理员
-        User userParam = new User();
-        user.setUsername(username);
-        List<User> users = userService.findList(userParam);
+        LoginUser user = new LoginUser(); // 创建一个"用户登陆"类实体
+        User userParam = new User(); // 创建一个"管理员"实体
+        user.setUsername(username); // 将输入的用户名注入管理员实体的用户名属性
+        List<User> users = userService.findList(userParam); // jQuery的findList()方法返回userList
         if (users == null || users.size() == 0) {
             return AjaxResult.error("用户名或密码错误");
         }
-        User loginUser = users.get(0);
-        user.setUserType("admin");
+        User loginUser = users.get(0); // get(0):获取集合List的第一个元素
+        user.setUserType("admin"); // 设置"用户登陆"类实体的类型为管理员
         String encodeStr = Base64.getEncoder().encodeToString(password.getBytes());
-        if (!encodeStr.equals(loginUser.getPassword())) {
-            return AjaxResult.error("用户名或密码错误");
+        if (!encodeStr.equals(loginUser.getPassword())) { // equals函数循环判断users的List中的密码是否匹配
+            return AjaxResult.error("密码错误");
+        }
+        String encodeStr1 = Base64.getEncoder().encodeToString(username.getBytes());
+        if (!encodeStr1.equals(loginUser.getUsername())) { // equals函数循环判断users的List中的用户名是否匹配
+            return AjaxResult.error("用户名错误");
         }
         user.setUid(loginUser.getId().toString());
         user.setUsername(loginUser.getUsername());

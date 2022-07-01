@@ -205,9 +205,8 @@ public class MemberController {
         }
 
         LoginUser user = new LoginUser();
-        // 管理员
         Member userParam = new Member();
-        userParam.setPhone(username);
+        userParam.setPhone(username); // 将手机作为用户名登陆
         List<Member> users = memberService.findList(userParam);
         if (users == null || users.size() == 0) {
             return AjaxResult.error("用户名或密码错误");
@@ -215,8 +214,12 @@ public class MemberController {
         Member loginUser = users.get(0);
         user.setUserType("user");
         String encodeStr = Base64.getEncoder().encodeToString(password.getBytes());
-        if (!encodeStr.equals(loginUser.getPassword())) {
-            return AjaxResult.error("用户名或密码错误");
+        if (!encodeStr.equals(loginUser.getPassword())) { // equals函数循环判断users的List中的密码是否匹配
+            return AjaxResult.error("密码错误");
+        }
+        String encodeStr1 = Base64.getEncoder().encodeToString(username.getBytes());
+        if (!encodeStr1.equals(loginUser.getPhone())) { // equals函数循环判断users的List中的用户名是否匹配
+            return AjaxResult.error("用户名错误");
         }
         user.setUid(loginUser.getId().toString());
         user.setUsername(loginUser.getMsName());
@@ -246,7 +249,7 @@ public class MemberController {
     }
 
     /**
-     * 用户登录
+     * 用户注册
      * @param request
      * @return
      */
