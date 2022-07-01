@@ -19,6 +19,8 @@
     <script type="text/javascript" src="${APP_PATH }/static/js/jquery-3.6.0.js"></script>
   </head>
 
+<%--管理员登录--%>
+
   <style>
     html {
       width: 100%;

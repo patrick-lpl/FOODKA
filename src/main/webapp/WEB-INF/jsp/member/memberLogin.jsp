@@ -19,6 +19,8 @@
     <script type="text/javascript" src="${APP_PATH }/static/js/jquery-3.6.0.js"></script>
   </head>
 
+<%--  会员登录--%>
+
   <style>
     html {
       width: 100%;
@@ -59,6 +61,7 @@
       background-color: #FFFFFF;
       width: 450px;
       border-radius: 25px;
+      height: 500px;
 
     }
   </style>
@@ -74,18 +77,18 @@
       <br>
 
       <label for="username" class="sr-only">用户名</label>
-      <input type="text" id="username" class="form-control"  style="margin-top: 50px;" placeholder="用户名" required autofocus>
+      <input type="text" id="username" class="form-control"  style="margin-top: 10px;" placeholder="用户名" required autofocus>
 
       <br>
 
       <label for="password" class="sr-only">密码</label>
-      <input type="password" id="password" class="form-control"  style="margin-top: 50px;" placeholder="密码" required>
+      <input type="password" id="password" class="form-control"  style="margin-top: 10px;" placeholder="密码" required>
 
       <br>
 
       <div class="box">
 
-        <input type="text" id="input" placeholder="请输入验证码 " style="margin-top: 30px;" class="form-control" required>
+        <input type="text" id="input" placeholder="请输入验证码 " style="margin-top: 10px;" class="form-control" required>
 
 
         <!-- <div class="block_box">
@@ -98,6 +101,7 @@
 
 
         <button id="loginBtn" class="btn btn-lg btn-primary btn-block" style="margin-top: 50px;" type="submit">登录</button>
+        <a id="toRegister" href="javascript:void(0)" class="btn btn-lg btn-default btn-block" style="margin-top: 15px;">前往注册</a>
       </div>
 
 
@@ -105,11 +109,20 @@
 <%--      <button id="loginBtn" class="btn btn-lg btn-primary btn-block" style="margin-top: 50px;" type="submit">登录</button>--%>
 
     </form>
-
+  <a id="toUserLogin" href="javascript:void(0)" style="font-family: YouYuan;float: right">管理员登录</a>
   </div>
   </body>
 
 <script>
+
+  $("#toRegister").click(function (){
+    location.href = "${pageContext.request.contextPath}/member/toMemberRegister?t="+new Date().getTime();
+  })
+
+  $("#toUserLogin").click(function (){
+    location.href = "${pageContext.request.contextPath}/?t="+new Date().getTime();
+  })
+
   var a ;
   class Verification {
     constructor() {

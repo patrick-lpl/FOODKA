@@ -19,6 +19,8 @@
     <script type="text/javascript" src="${APP_PATH }/static/js/jquery-3.6.0.js"></script>
   </head>
 
+<%--  会员注册--%>
+
   <style>
     html {
       width: 100%;
@@ -63,14 +65,14 @@
         </select>
         <br>
         <button id="registerBtn" class="btn btn-lg btn-primary btn-block" style="margin-top: 15px;" type="submit">注册</button>
-        <a id="toLogin" href="javascript:void(0)" class="btn btn-lg btn-default btn-block" style="margin-top: 15px;">返回登录</a>
+        <a id="toMemberLogin" href="javascript:void(0)" class="btn btn-lg btn-default btn-block" style="margin-top: 15px;">返回登录</a>
       </form>
     </div>
   </body>
 
 <script>
 
-  $("#toLogin").click(function (){
+  $("#toMemberLogin").click(function (){
     location.href = "${pageContext.request.contextPath}/member/toMemberLogin?t="+new Date().getTime();
   })
 
