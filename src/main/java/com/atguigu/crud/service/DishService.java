@@ -1,14 +1,10 @@
-package com.atguigu.crud.dao;
-
+package com.atguigu.crud.service;
 
 import com.atguigu.crud.entity.Dish;
-import com.atguigu.crud.entity.User;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
-@Mapper
-public interface DishDao {
+public interface DishService {
     /**
      * 通过ID查询单条数据
      *
@@ -17,31 +13,30 @@ public interface DishDao {
      */
     Dish queryById(String id);
 
-    List<Dish> findList(Dish dish);
-
     /**
      * 新增数据
      *
      * @param dish 实例对象
-     * @return 影响行数
+     * @return 实例对象
      */
-    int insert(Dish dish);
-
+    Dish insert(Dish dish);
 
     /**
      * 修改数据
      *
      * @param dish 实例对象
-     * @return 影响行数
+     * @return 实例对象
      */
-    int update(Dish dish);
+    Dish update(Dish dish);
 
     /**
      * 通过主键删除数据
      *
      * @param id 主键
-     * @return 影响行数
+     * @return 是否成功
      */
-    int deleteById(String id);
+    boolean deleteById(String id);
+
+    List<Dish> findList(Dish dish);
 
 }

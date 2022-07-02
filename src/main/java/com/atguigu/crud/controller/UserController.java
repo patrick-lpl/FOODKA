@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
-//摸鱼飞弹！0v0 0v0
+
 @Controller
 @RequestMapping("/user")
 public class UserController {
