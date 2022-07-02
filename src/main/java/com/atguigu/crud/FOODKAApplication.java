@@ -8,10 +8,10 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 @SpringBootApplication
 @ServletComponentScan
 @MapperScan("com.**.dao")
-public class HuoguoApplication {
+public class FOODKAApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HuoguoApplication.class, args);
+        SpringApplication.run(FOODKAApplication.class, args);
     }
 
 }
