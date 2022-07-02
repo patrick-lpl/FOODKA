@@ -2,7 +2,6 @@ package com.atguigu.crud.controller;
 
 
 import com.atguigu.crud.entity.*;
-import com.atguigu.crud.service.MemberCardService;
 import com.atguigu.crud.service.MemberService;
 import com.atguigu.crud.utils.pojo.AjaxResult;
 import com.atguigu.crud.utils.tools.StringUtils;
@@ -34,11 +33,11 @@ public class MemberController {
     }
 
     // 我的会员卡
-    @RequestMapping("toMyMemberCard")
-    public String toMyMemberCard(ModelMap modelMap){
-        modelMap.put("page","myMemberCard");
-        return "member/myMemberCard";
-    }
+//    @RequestMapping("toMyMemberCard")
+//    public String toMyMemberCard(ModelMap modelMap){
+//        modelMap.put("page","myMemberCard");
+//        return "member/myMemberCard";
+//    }
 
     // 我的订单
     @RequestMapping("toMyOrder")
@@ -48,19 +47,19 @@ public class MemberController {
     }
 
 
-    // 会员卡日志
-    @RequestMapping("toMyCardLog")
-    public String toMyCardLog(ModelMap modelMap){
-        modelMap.put("page","myCardLog");
-        return "member/myCardLog";
-    }
-
-    // 日志
-    @RequestMapping("toMyPointLog")
-    public String toMyPointLog(ModelMap modelMap){
-        modelMap.put("page","myPointLog");
-        return "member/myPointLog";
-    }
+//    // 会员卡日志
+//    @RequestMapping("toMyCardLog")
+//    public String toMyCardLog(ModelMap modelMap){
+//        modelMap.put("page","myCardLog");
+//        return "member/myCardLog";
+//    }
+//
+//    // 日志
+//    @RequestMapping("toMyPointLog")
+//    public String toMyPointLog(ModelMap modelMap){
+//        modelMap.put("page","myPointLog");
+//        return "member/myPointLog";
+//    }
 
     // 修改密码
     @RequestMapping("toMyRePassword")
@@ -84,20 +83,20 @@ public class MemberController {
     }
 
     // 积分兑换
-    @RequestMapping("toMyPointExchangeDef")
-    public String toMyPointExchangeDef(ModelMap modelMap,HttpServletRequest request){
-        LoginUser loginUser = (LoginUser) request.getSession().getAttribute("loginUser");
-        if (loginUser != null && "user".equals(loginUser.getUserType())){
-            String uid = loginUser.getUid();
-            Member member = new Member();
-            member.setId(Integer.parseInt(uid));
-            List<Member> memberList = memberService.findList(member);
-            String point = memberList.get(0).getPoint();
-            modelMap.put("point",point == null? 0 : point);
-        }
-        modelMap.put("page","myPointExchangeDef");
-        return "member/myPointExchangeDef";
-    }
+//    @RequestMapping("toMyPointExchangeDef")
+//    public String toMyPointExchangeDef(ModelMap modelMap,HttpServletRequest request){
+//        LoginUser loginUser = (LoginUser) request.getSession().getAttribute("loginUser");
+//        if (loginUser != null && "user".equals(loginUser.getUserType())){
+//            String uid = loginUser.getUid();
+//            Member member = new Member();
+//            member.setId(Integer.parseInt(uid));
+//            List<Member> memberList = memberService.findList(member);
+//            String point = memberList.get(0).getPoint();
+//            modelMap.put("point",point == null? 0 : point);
+//        }
+//        modelMap.put("page","myPointExchangeDef");
+//        return "member/myPointExchangeDef";
+//    }
 
     /**
      * 分页列表
@@ -166,7 +165,7 @@ public class MemberController {
     }
 
     /**
-     * 删除
+     * 通过手机号查询用户
      * @param request
      * @return
      */

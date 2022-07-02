@@ -21,8 +21,8 @@
             <li <c:if test="${page == 'pointDef'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">积分配置</a></li>
             <li <c:if test="${page == 'pointLog'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">积分日志查询</a></li>
             <li <c:if test="${page == 'statistics'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">数据统计</a></li>
-            <li <c:if test="${page == 'user'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">用户管理</a></li>
-            <li <c:if test="${page == 'info'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">个人信息</a></li>
+            <li <c:if test="${page == 'user'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/user/toList">用户管理</a></li>
+            <li <c:if test="${page == 'info'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/admin/toList">个人信息</a></li>
             <li <c:if test="${page == 'toRepwd'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toRepwd">修改密码</a></li>
         </c:if>
         <c:if test="${loginUser.userType == 'user'}">
