@@ -186,7 +186,7 @@
           return index+1;
         }
       },{
-        field: 'img',
+        field: 'photo',
         title: '头像',
         formatter:function(value, item, index){
           if(item.img && item.img != '') {
@@ -198,13 +198,13 @@
         field: 'username',
         title: '用户名'
       }, {
-        field: 'name',
+        field: 'adminName',
         title: '真实姓名'
       },  {
-        field: 'phone',
+        field: 'adminPhone',
         title: '手机号码'
       },  {
-        field: 'email',
+        field: 'adminEmail',
         title: '邮箱'
       },{
         field: 'operate',
