@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.crud.dao.AdminDao">
+
+    <resultMap type="com.atguigu.crud.entity.Admin" id="AdminMap">
+        <result property="adminId" column="admin_id" jdbcType="INTEGER"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="adminName" column="admin_name" jdbcType="VARCHAR"/>
+        <result property="adminPhone" column="admin_phone" jdbcType="VARCHAR"/>
+        <result property="adminEmail" column="admin_email" jdbcType="VARCHAR"/>
+        <result property="photo" column="photo" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="AdminMap">
+        select
+            admin_id, username, password, admin_name, admin_phone, admin_email, photo, create_time, update_time
+        from admin
+        where admin_id = #{admin_id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="findList" resultMap="AdminMap">
+        select
+        admin_id, username, password, admin_name, admin_phone, admin_email, photo, create_time, update_time
+        from admin
+        <where>
+            <if test="adminId != null">
+                and admin_id = #{adminId}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+
+            <if test="adminName != null and adminName != ''">
+                and `admin_name` = #{adminName}
+            </if>
+
+            <if test="adminPhone != null and adminPhone != ''">
+                and admin_phone = #{adminPhone}
+            </if>
+            <if test="adminEmail != null and adminEmail != ''">
+                and admin_email = #{adminEmail}
+            </if>
+            <if test="photo != null and photo != ''">
+                and photo = #{photo}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+            and update_time = #{updateTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="admin_id" useGeneratedKeys="true">
+        insert into admin(username, password, admin_name, admin_phone, admin_email, photo, create_time, update_time)
+        values (#{username}, #{password},#{adminName}, #{adminPhone}, #{adminEmail}, #{photo}, #{createTime}, #{updateTime})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update admin
+        <set>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+
+            <if test="adminName != null and adminName != ''">
+                admin_name = #{adminName},
+            </if>
+
+            <if test="adminPhone != null and adminPhone != ''">
+                admin_phone = #{adminPhone},
+            </if>
+            <if test="adminEmail != null and adminEmail != ''">
+                email = #{adminEmail},
+            </if>
+            <if test="photo != null and photo != ''">
+                photo = #{photo},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where admin_id = #{adminId}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from admin where admin_id = #{adminId}
+    </delete>
+
+</mapper>
+

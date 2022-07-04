@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.crud.dao.OrderDao">
+
+    <resultMap id="OrderMap" type="com.atguigu.crud.entity.Order">
+        <result property="orderId" column="order_id" jdbcType="INTEGER"/>
+        <result property="usId" column="us_id" jdbcType="INTEGER"/>
+        <result property="total" column="total" jdbcType="DECIMAL" />
+        <result property="createTime" column="createTime" jdbcType="VARCHAR" />
+    </resultMap>
+
+</mapper>
+

@@ -2,8 +2,8 @@ package com.atguigu.crud.controller;
 
 
 import com.atguigu.crud.entity.LoginUser;
-import com.atguigu.crud.entity.User;
-import com.atguigu.crud.service.UserService;
+import com.atguigu.crud.entity.Admin;
+import com.atguigu.crud.service.AdminService;
 import com.atguigu.crud.utils.pojo.AjaxResult;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -21,11 +21,11 @@ import java.util.Map;
 
 
 @Controller
-@RequestMapping("admin")
+@RequestMapping("/adminInfo")
 public class InfoController {
 
     @Autowired
-    UserService userService;
+    AdminService adminService;
 
     @RequestMapping("toList")
     public String toList(ModelMap modelMap){
@@ -40,13 +40,13 @@ public class InfoController {
      */
     @ResponseBody
     @RequestMapping("list")
-    public Object list(User e, HttpServletRequest request){
+    public Object list(Admin e, HttpServletRequest request){
         HttpSession session = request.getSession();
         LoginUser loginUser = (LoginUser) session.getAttribute("loginUser");
-        e.setId(loginUser.getUid());
+        e.setAdminId(loginUser.getUid());
         PageHelper.startPage(e.getOffset(),e.getLimit());
-        List<User> users = userService.findList(e);
-        PageInfo pageInfo = new PageInfo(users);
+        List<Admin> admins = adminService.findList(e);
+        PageInfo pageInfo = new PageInfo(admins);
         Map<String,Object> map = new HashMap<>();
         map.put("total",pageInfo.getTotal());
         map.put("rows",pageInfo.getList());
@@ -60,12 +60,12 @@ public class InfoController {
      */
     @ResponseBody
     @RequestMapping("/save")
-    public AjaxResult save(User e) {
-        String id = e.getId();
+    public AjaxResult save(Admin e) {
+        String id = e.getAdminId();
         if ("".equals(id) || null == id) {
-            userService.insert(e);
+            adminService.insert(e);
         }else {
-            userService.update(e);
+            adminService.update(e);
         }
         return AjaxResult.success("操作成功");
     }

@@ -73,7 +73,7 @@
 <script>
 
   $("#toMemberLogin").click(function (){
-    location.href = "${pageContext.request.contextPath}/member/toMemberLogin?t="+new Date().getTime();
+    location.href = "${pageContext.request.contextPath}/user/toMemberLogin?t="+new Date().getTime();
   })
 
   $("#registerBtn").click(function (){
@@ -95,7 +95,7 @@
     }
     $.ajax({
       type: "POST",
-      url: "${pageContext.request.contextPath}/member/memberRegister",
+      url: "${pageContext.request.contextPath}/user/memberRegister",
       data: data,
       dataType: "json",
       success: function(data){
@@ -104,7 +104,7 @@
         }else {
           alert("注册成功！！！！")
           setTimeout(function (){
-            location.href = "${pageContext.request.contextPath}/member/toMemberLogin?t="+new Date().getTime();
+            location.href = "${pageContext.request.contextPath}/user/toMemberLogin?t="+new Date().getTime();
           },300)
         }
       }

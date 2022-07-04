@@ -50,7 +50,7 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 <%--          <div class="text-right clearfix" style="margin-top: 10px;">--%>
-<%--<c:if test="${loginUser.userType == 'admin'}">--%>
+<%--<c:if test="${loginAdmin.userType == 'admin'}">--%>
 <%--            <button type="button" id="addBtn" class="btn btn-primary">新增</button>--%>
 <%--            <button type="button" id="delBtn" class="btn btn-primary">删除</button>--%>
 <%--</c:if>--%>
@@ -62,7 +62,7 @@
               <input type="text" class="form-control" id="msNameQuery" placeholder="请输入会员名">
             </div>
             <button type="submit" id="queryBtn" class="btn btn-default">查询</button>
-            <c:if test="${loginUser.userType == 'admin'}">
+            <c:if test="${loginAdmin.userType == 'admin'}">
               <button type="button" id="addBtn" class="btn btn-primary">新增</button>
               <button type="button" id="delBtn" class="btn btn-primary">删除</button>
             </c:if>
@@ -126,7 +126,7 @@
     function deleteEmp(id) {
       $.ajax({
         type: "POST",
-        url: "${pageContext.request.contextPath}/member/delete",
+        url: "${pageContext.request.contextPath}/user/delete",
         data: {ids:id},
         dataType: "json",
         success: function(data){
@@ -148,12 +148,12 @@
       console.log(row);
       let  oper = [
         '<button id="view" type="button" class="btn btn-default">查看</button>',
-        <c:if test="${loginUser.userType == 'admin'}">
+        <c:if test="${loginAdmin.userType == 'admin'}">
         '<button id="edit" type="button" class="btn btn-default">编辑</button>',
         '<button id="delete" type="button" class="btn btn-default">删除</button>',
         </c:if>
       ]
-      <c:if test="${loginUser.userType == 'admin'}">
+      <c:if test="${loginAdmin.userType == 'admin'}">
             if(row.cardFlag == 'N') {
               oper.push('<button id="opencard" type="button" class="btn btn-default">开卡</button>')
             }
@@ -263,7 +263,7 @@
       }
       $.ajax({
         type: "POST",
-        url: "${pageContext.request.contextPath}/member/save",
+        url: "${pageContext.request.contextPath}/user/save",
         data: data,
         dataType: "json",
         success: function(data){
@@ -282,7 +282,7 @@
 
     // 表格渲染
     $('#table').bootstrapTable({
-      url: '${pageContext.request.contextPath}/member/list',
+      url: '${pageContext.request.contextPath}/user/list',
       pagination: true,
       sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
       pageNumber: 1,                       //初始化加载第一页，默认第一页

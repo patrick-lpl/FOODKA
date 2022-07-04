@@ -3,106 +3,88 @@
 <mapper namespace="com.atguigu.crud.dao.UserDao">
 
     <resultMap type="com.atguigu.crud.entity.User" id="UserMap">
-        <result property="id" column="id" jdbcType="INTEGER"/>
-        <result property="username" column="username" jdbcType="VARCHAR"/>
-        <result property="password" column="password" jdbcType="VARCHAR"/>
-        <result property="name" column="name" jdbcType="VARCHAR"/>
-        <result property="phone" column="phone" jdbcType="VARCHAR"/>
-        <result property="email" column="email" jdbcType="VARCHAR"/>
-        <result property="img" column="img" jdbcType="VARCHAR"/>
+        <result property="usId" column="us_id" jdbcType="INTEGER"/>
+        <result property="usName" column="us_name" jdbcType="VARCHAR"/>
+        <result property="usSex" column="us_sex" jdbcType="VARCHAR"/>
+        <result property="usAge" column="us_age" jdbcType="INTEGER"/>
+        <result property="usPhone" column="us_phone" jdbcType="VARCHAR"/>
         <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
-        <result property="updateTime" column="update_time" jdbcType="VARCHAR"/>
+        <result property="usPassword" column="us_password" jdbcType="VARCHAR"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="UserMap">
         select
-          id, username, password,  name, phone, email, img, create_time, update_time
+            us_id, us_name, us_sex, us_age, us_phone, create_time,us_password
         from user
-        where id = #{id}
+        where us_id = #{usId}
     </select>
 
     <!--查询指定行数据-->
     <select id="findList" resultMap="UserMap">
         select
-          id, username, password,  name,  phone, email, img, create_time, update_time
-        from user
+        m.us_id, m.us_name, m.us_sex, m.us_age, m.us_phone,m.us_password, DATE_FORMAT(m.create_time,'%Y-%m-%d %H:%i:%s') create_time
+        from user m
         <where>
-            <if test="id != null">
-                and id = #{id}
+            <if test="usId != null">
+                and m.us_id = #{usId}
             </if>
-            <if test="username != null and username != ''">
-                and username = #{username}
+            <if test="usName != null and usName != ''">
+                and m.us_name = #{usName}
             </if>
-            <if test="password != null and password != ''">
-                and password = #{password}
+            <if test="usSex != null and usSex != ''">
+                and m.us_sex = #{usSex}
             </if>
-
-            <if test="name != null and name != ''">
-                and `name` = #{name}
+            <if test="usAge != null">
+                and m.us_age = #{usAge}
             </if>
-
-            <if test="phone != null and phone != ''">
-                and phone = #{phone}
-            </if>
-            <if test="email != null and email != ''">
-                and email = #{email}
-            </if>
-            <if test="img != null and img != ''">
-                and img = #{img}
+            <if test="usPhone != null and usPhone != ''">
+                and m.us_phone = #{usPhone}
             </if>
             <if test="createTime != null">
-                and create_time = #{createTime}
+                and m.create_time = #{createTime}
             </if>
-            <if test="updateTime != null">
-                and update_time = #{updateTime}
-            </if>
+
         </where>
+        order by m.create_time desc
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into user(username, password,  name, phone, email, img, create_time, update_time)
-        values (#{username}, #{password},#{name}, #{phone}, #{email}, #{img}, #{createTime}, #{updateTime})
+    <insert id="insert" keyProperty="user_id" useGeneratedKeys="true">
+        insert into user(us_name, us_sex, us_age, us_phone, us_password,create_time)
+        values (#{usName}, #{usSex}, #{usAge}, #{usPhone}, #{usPassword},now())
     </insert>
+
 
     <!--通过主键修改数据-->
     <update id="update">
         update user
         <set>
-            <if test="username != null and username != ''">
-                username = #{username},
+            <if test="usName != null and usName != ''">
+                us_name = #{usName},
             </if>
-            <if test="password != null and password != ''">
-                password = #{password},
+            <if test="usSex != null and usSex != ''">
+                us_sex = #{usSex},
             </if>
-
-            <if test="name != null and name != ''">
-                name = #{name},
+            <if test="usAge != null">
+                us_age = #{usAge},
             </if>
-
-            <if test="phone != null and phone != ''">
-                phone = #{phone},
+            <if test="usPhone != null and usPhone != ''">
+                us_phone = #{usPhone},
             </if>
-            <if test="email != null and email != ''">
-                email = #{email},
-            </if>
-            <if test="img != null and img != ''">
-                img = #{img},
+            <if test="usPassword != null and usPassword != ''">
+                us_password = #{usPassword},
             </if>
             <if test="createTime != null">
                 create_time = #{createTime},
             </if>
-            <if test="updateTime != null">
-                update_time = #{updateTime},
-            </if>
         </set>
-        where id = #{id}
+        where us_id = #{usId}
     </update>
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from user where id = #{id}
+        delete from user where us_id = #{usId}
     </delete>
 
 </mapper>

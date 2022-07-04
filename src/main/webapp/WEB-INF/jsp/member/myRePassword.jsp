@@ -72,7 +72,7 @@
       }
     $.ajax({
       type: "POST",
-      url: "${pageContext.request.contextPath}/member/updateUserPwd",
+      url: "${pageContext.request.contextPath}/user/updateUserPwd",
       data: {
         pwd:pwd,
         repwd:repwd

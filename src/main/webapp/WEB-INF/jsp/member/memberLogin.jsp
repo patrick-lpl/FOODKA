@@ -117,7 +117,7 @@
 <script>
   // 跳转到注册界面
   $("#registerBtn").click(function (){
-    location.href = "${pageContext.request.contextPath}/member/toMemberRegister?t="+new Date().getTime();
+    location.href = "${pageContext.request.contextPath}/user/toMemberRegister?t="+new Date().getTime();
   })
 
 // 跳转至管理员登录界面
@@ -242,7 +242,7 @@
 
 
   $("#toRegister").click(function (){
-    location.href = "${pageContext.request.contextPath}/member/toMemberRegister?t="+new Date().getTime();
+    location.href = "${pageContext.request.contextPath}/user/toMemberRegister?t="+new Date().getTime();
   })
 
   $("#loginBtn").click(function (){
@@ -252,7 +252,7 @@
     }
     $.ajax({
       type: "POST",
-      url: "${pageContext.request.contextPath}/member/memberLogin",
+      url: "${pageContext.request.contextPath}/user/userLogin",
       data: data,
       dataType: "json",
       success: function(data){

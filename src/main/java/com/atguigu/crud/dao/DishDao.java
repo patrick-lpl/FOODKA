@@ -1,44 +1,39 @@
 package com.atguigu.crud.dao;
 
-import com.atguigu.crud.entity.User;
+
+import com.atguigu.crud.entity.Dish;
 import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
-
 @Mapper
-public interface UserDao {
-
+public interface DishDao {
     /**
      * 通过ID查询单条数据
      *
      * @param id 主键
      * @return 实例对象
      */
-    User queryById(Integer id);
+    Dish queryById(String id);
 
-    /**
-     * 查询指定行数据
-     *
-     * @param user 查询条件
-     * @return 对象列表
-     */
-    List<User> findList(User user);
+    List<Dish> findList(Dish dish);
 
     /**
      * 新增数据
      *
-     * @param user 实例对象
+     * @param dish 实例对象
      * @return 影响行数
      */
-    int insert(User user);
+    int insert(Dish dish);
+
 
     /**
      * 修改数据
      *
-     * @param user 实例对象
+     * @param dish 实例对象
      * @return 影响行数
      */
-    int update(User user);
+    int update(Dish dish);
 
     /**
      * 通过主键删除数据
@@ -46,7 +41,6 @@ public interface UserDao {
      * @param id 主键
      * @return 影响行数
      */
-    int deleteById(Integer id);
+    int deleteById(String id);
 
 }
-

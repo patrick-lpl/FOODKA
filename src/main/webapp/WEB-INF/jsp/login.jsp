@@ -92,7 +92,7 @@
     }
     $.ajax({
       type: "POST",
-      url: "${pageContext.request.contextPath}/userLogin",
+      url: "${pageContext.request.contextPath}/adminLogin",
       data: data,
       dataType: "json",
       success: function(data){

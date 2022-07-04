@@ -4,10 +4,7 @@ import com.atguigu.crud.entity.User;
 
 import java.util.List;
 
-/**
- * 用户（学生）(StuUser)表服务接口
- *
- */
+
 public interface UserService {
 
     /**
@@ -16,7 +13,15 @@ public interface UserService {
      * @param id 主键
      * @return 实例对象
      */
-    User queryById(String id);
+    User queryById(Integer id);
+
+    /**
+     * 分页查询
+     *
+     * @param user 筛选条件
+     * @return 查询结果
+     */
+    List<User> findList(User user);
 
     /**
      * 新增数据
@@ -40,8 +45,8 @@ public interface UserService {
      * @param id 主键
      * @return 是否成功
      */
-    boolean deleteById(String id);
+    boolean deleteById(Integer id);
 
-    List<User> findList(User user);
+    void deleteByIds(String ids);
 
 }

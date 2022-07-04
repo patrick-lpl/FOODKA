@@ -4,6 +4,6 @@ http://localhost:8888/
 admin 123
 
 会员
-http://localhost:8888/member/toMemberRegister
+http://localhost:8888/user/toUserRegister
 
 默认 123456/12345 都试试

@@ -1,19 +1,18 @@
 package com.atguigu.crud.service.impl;
 
+import java.util.List;
 import com.atguigu.crud.entity.User;
 import com.atguigu.crud.dao.UserDao;
 import com.atguigu.crud.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 
-@Service
+@Service("memberService")
 public class UserServiceImpl implements UserService {
-
     @Resource
-    private UserDao userMapper;
+    private UserDao userDao;
 
     /**
      * 通过ID查询单条数据
@@ -22,10 +21,19 @@ public class UserServiceImpl implements UserService {
      * @return 实例对象
      */
     @Override
-    public User queryById(String id) {
-        return this.userMapper.queryById(id);
+    public User queryById(Integer id) {
+        return this.userDao.queryById(id);
     }
 
+    /**
+     * 分页查询
+     *
+     * @return 查询结果
+     */
+    @Override
+    public List<User> findList(User user) {
+        return this.userDao.findList(user);
+    }
 
     /**
      * 新增数据
@@ -35,7 +43,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User insert(User user) {
-        this.userMapper.insert(user);
+        this.userDao.insert(user);
         return user;
     }
 
@@ -47,8 +55,8 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User update(User user) {
-        this.userMapper.update(user);
-        return this.queryById(user.getId());
+        this.userDao.update(user);
+        return this.queryById(user.getUsId());
     }
 
     /**
@@ -58,16 +66,15 @@ public class UserServiceImpl implements UserService {
      * @return 是否成功
      */
     @Override
-    public boolean deleteById(String id) {
-        String[] ids = id.split(",");
-        for (String s : ids) {
-            this.userMapper.deleteById(id);
-        }
-        return true;
+    public boolean deleteById(Integer id) {
+        return this.userDao.deleteById(id) > 0;
     }
 
     @Override
-    public List<User> findList(User user) {
-        return this.userMapper.findList(user);
+    public void deleteByIds(String ids) {
+        String[] idArr = ids.split(",");
+        for (String s : idArr) {
+            this.userDao.deleteById(Integer.valueOf(s));
+        }
     }
 }

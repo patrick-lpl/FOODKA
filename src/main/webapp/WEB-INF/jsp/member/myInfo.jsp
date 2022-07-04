@@ -75,7 +75,7 @@
 
     // 表格渲染
     $('#table').bootstrapTable({
-      url: '${pageContext.request.contextPath}/member/list',
+      url: '${pageContext.request.contextPath}/user/list',
       pagination: true,
       sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
       pageNumber: 1,                       //初始化加载第一页，默认第一页
