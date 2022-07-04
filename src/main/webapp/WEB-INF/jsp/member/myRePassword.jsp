@@ -13,7 +13,7 @@
     <%
     pageContext.setAttribute("APP_PATH",request.getContextPath());
     %>>
-    <title>火锅店会员管理系统</title>
+    <title>FOODKA管理系统</title>
 
     <link href="${APP_PATH }/static/bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.3/dist/bootstrap-table.min.css">
@@ -25,6 +25,23 @@
 
   </head>
 
+
+  <style>
+
+    #MyRepassword{
+      text-align: center;
+      width: 700px;
+      height: 700px;
+      position: absolute;
+      left: 40%;
+      top: 60%;
+      transform: translate(-50%,-50%);
+      font-family: YouYuan;
+    }
+
+
+  </style>
+
   <body>
 
     <jsp:include page="../navbar.jsp"></jsp:include>
@@ -34,18 +51,18 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <jsp:include page="../menu.jsp"></jsp:include>
         </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" id="MyRepassword">
 
           <form role="form">
             <div class="form-group">
               <label for="pwd">新密码</label>
-              <input type="password" class="form-control" id="pwd" placeholder="请输入密码">
+              <input type="password" class="form-control" id="pwd" placeholder="请输入新密码" style="height: 50px; margin-bottom: 30px;border-radius: 15px;">
             </div>
             <div class="form-group">
               <label for="repwd">确认密码</label>
-              <input type="password" class="form-control" id="repwd" placeholder="请输入密码">
+              <input type="password" class="form-control" id="repwd" placeholder="请再次输入新密码" style="height: 50px; margin-bottom: 30px;border-radius: 15px;">
             </div>
-            <button id="submitBtn" type="submit" class="btn btn-default">提交</button>
+            <button id="submitBtn" type="submit" class="btn btn-lg btn-primary btn-block">提交</button>
           </form>
         </div>
       </div>

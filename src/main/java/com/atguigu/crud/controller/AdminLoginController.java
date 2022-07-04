@@ -87,7 +87,7 @@ public class AdminLoginController {
         HttpSession httpSession = request.getSession();
         LoginUser loginUser = (LoginUser) httpSession.getAttribute("loginUser");
         if(null == loginUser || "admin".equals(loginUser.getUserType())) {
-            return "redirect:login";
+            return "redirect:user/toMemberLogin";
         }
         httpSession.setAttribute("loginUser",null);
         return "redirect:user/toMemberLogin";

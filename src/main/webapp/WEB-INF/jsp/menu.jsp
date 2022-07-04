@@ -12,10 +12,9 @@
 <%--只有前两行和最后一行是正确跳转链接的--%>
         <c:if test="${loginUser.userType == 'admin'}">
             <li <c:if test="${page == 'homePage'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">我的主页</a></li>
-            <li <c:if test="${page == 'user'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/user/toList">会员管理</a></li>
             <li <c:if test="${page == 'statistics'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">数据统计</a></li>
             <li <c:if test="${page == 'admin'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/admin/toList">用户管理</a></li>
-            <li <c:if test="${page == 'info'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/adminInfo/toList">个人信息</a></li>
+            <li <c:if test="${page == 'info'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/adminInfo/toList">管理员信息</a></li>
             <li <c:if test="${page == 'toRepwd'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toRepwd">修改密码</a></li>
         </c:if>
         <c:if test="${loginUser.userType == 'user'}">

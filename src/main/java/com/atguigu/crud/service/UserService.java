@@ -1,10 +1,12 @@
 package com.atguigu.crud.service;
 
 import com.atguigu.crud.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 
+@Mapper
 public interface UserService {
 
     /**

@@ -4,12 +4,14 @@ import java.util.List;
 import com.atguigu.crud.entity.User;
 import com.atguigu.crud.dao.UserDao;
 import com.atguigu.crud.service.UserService;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
 
 @Service("memberService")
+@Mapper
 public class UserServiceImpl implements UserService {
     @Resource
     private UserDao userDao;

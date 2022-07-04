@@ -49,7 +49,7 @@
   </style>
   <body>
 
-  <h1 class="form-signin-heading text-center"style="font-weight: bolder; font-family:YouYuan"><font color="#0b0b0b" size="7">火锅店管理系统</font><span style="font-size: 16px;" style="font-weight: bolder; font-family:YouYuan">| 管理员登录</span></h1>
+  <h1 class="form-signin-heading text-center"style="font-weight: bolder; font-family:YouYuan"><font color="#0b0b0b" size="7">FOODKA管理系统</font><span style="font-size: 16px;" style="font-weight: bolder; font-family:YouYuan">| 管理员登录</span></h1>
   <div class="container">
 
     <form class="form-signin" style="max-width: 400px;margin:0 auto">

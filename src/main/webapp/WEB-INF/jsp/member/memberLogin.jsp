@@ -11,7 +11,7 @@
   <%
     pageContext.setAttribute("APP_PATH",request.getContextPath());
   %>>
-  <title>火锅店会员管理系统——会员</title>
+  <title>FOODKA管理系统——会员</title>
 
   <link href="${APP_PATH }/static/bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="${APP_PATH }/static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -67,7 +67,7 @@
 </style>
 <body>
 
-<h1 class="form-signin-heading text-center"style="font-weight: bolder; font-family:YouYuan"><font color="#0b0b0b" size="7">火锅店管理系统</font><span style="font-size: 16px;" style="font-weight: bolder; font-family:YouYuan">| 会员登录</span></h1>
+<h1 class="form-signin-heading text-center"style="font-weight: bolder; font-family:YouYuan"><font color="#0b0b0b" size="7">FOODKA管理系统</font><span style="font-size: 16px;" style="font-weight: bolder; font-family:YouYuan">| 会员登录</span></h1>
 <div class="container">
 
   <form class="form-signin" style="max-width: 400px;margin:0 auto">

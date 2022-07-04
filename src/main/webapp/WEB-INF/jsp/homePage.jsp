@@ -13,7 +13,7 @@
     <%
         pageContext.setAttribute("APP_PATH",request.getContextPath());
     %>>
-    <title>火锅店会员管理系统</title>
+    <title>FOODKA管理系统</title>
 
     <link href="${APP_PATH }/static/bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.3/dist/bootstrap-table.min.css">
@@ -35,7 +35,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
             <h2 style="text-align: center">
-                火锅店会员管理系统,欢迎您
+                FOODKA管理系统,欢迎您
             </h2>
 
         </div>

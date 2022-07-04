@@ -1,6 +1,7 @@
 package com.atguigu.crud.controller;
 
 
+import com.atguigu.crud.dao.UserDao;
 import com.atguigu.crud.entity.*;
 import com.atguigu.crud.service.UserService;
 import com.atguigu.crud.utils.pojo.AjaxResult;
@@ -10,6 +11,7 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -19,6 +21,7 @@ import java.util.*;
 
 
 @Controller
+
 @RequestMapping("/user")
 public class UserController {
 

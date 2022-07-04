@@ -11,7 +11,7 @@
     <%
       pageContext.setAttribute("APP_PATH",request.getContextPath());
     %>>
-    <title>火锅店会员管理系统</title>
+    <title>FOODKA管理系统</title>
 
     <link href="${APP_PATH }/static/bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="${APP_PATH }/static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -42,7 +42,7 @@
 
     <div class="container">
 
-      <h2 class="form-signin-heading text-center">火锅店会员管理系统 <span style="font-size: 16px;">| 会员注册</span></h2>
+      <h2 class="form-signin-heading text-center">FOODKA管理系统 <span style="font-size: 16px;">| 会员注册</span></h2>
       <form class="form-signin" style="max-width: 360px;margin:0 auto">
 
         <label for="phone" class="sr-only">手机号码</label>
@@ -99,15 +99,18 @@
       data: data,
       dataType: "json",
       success: function(data){
+
         if (data.code == '500') {
+
           alert(data.msg)
         }else {
           alert("注册成功！！！！")
           setTimeout(function (){
             location.href = "${pageContext.request.contextPath}/user/toMemberLogin?t="+new Date().getTime();
-          },300)
+          },300)   //原来是300
         }
       }
+
     });
     return false;
   })
