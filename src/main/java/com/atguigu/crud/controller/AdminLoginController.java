@@ -90,7 +90,7 @@ public class AdminLoginController {
             return "redirect:login";
         }
         httpSession.setAttribute("loginUser",null);
-        return "redirect:member/toMemberLogin";
+        return "redirect:user/toMemberLogin";
     }
 
 

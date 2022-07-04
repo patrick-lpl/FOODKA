@@ -100,27 +100,18 @@
           return index+1;
         }
       }, {
-        field: 'msName',
+        field: 'usName',
         title: '会员名称'
       },  {
-        field: 'age',
+        field: 'usAge',
         title: '年龄'
       },  {
-        field: 'sex',
+        field: 'usSex',
         title: '性别'
       },  {
-        field: 'phone',
+        field: 'usPhone',
         title: '联系方式'
-      },{
-        field: 'point',
-        title: '积分'
-      },{
-        field: 'cardFlag',
-        title: '是否开卡',
-        formatter:function (cardFlag){
-          return cardFlag == 'Y'? '是':'否'
-        }
-      },  {
+      }, {
         field: 'createTime',
         title: '注册时间'
       }],
