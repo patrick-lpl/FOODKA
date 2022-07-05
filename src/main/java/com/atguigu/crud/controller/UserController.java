@@ -31,8 +31,8 @@ public class UserController {
 
     @RequestMapping("toList")
     public String toList(ModelMap modelMap){
-        modelMap.put("page","user");
-        return "user";
+        modelMap.put("page","member");
+        return "member";
     }
 
     // 我的会员卡

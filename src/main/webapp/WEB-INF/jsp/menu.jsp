@@ -13,7 +13,7 @@
         <c:if test="${loginUser.userType == 'admin'}">
             <li <c:if test="${page == 'homePage'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">我的主页</a></li>
             <li <c:if test="${page == 'statistics'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toHomePage">数据统计</a></li>
-            <li <c:if test="${page == 'admin'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/admin/toList">用户管理</a></li>
+            <li <c:if test="${page == 'admin'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/user/toList">用户管理</a></li>
             <li <c:if test="${page == 'info'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/adminInfo/toList">管理员信息</a></li>
             <li <c:if test="${page == 'toRepwd'}"> class="active" </c:if> ><a href="${pageContext.request.contextPath}/toRepwd">修改密码</a></li>
         </c:if>

@@ -11,7 +11,7 @@
     <%
       pageContext.setAttribute("APP_PATH",request.getContextPath());
     %>>
-    <title>火锅店会员管理系统</title>
+    <title>FOODKA会员管理系统</title>
 
     <link href="${APP_PATH }/static/bootstrap-3.4.1-dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="${APP_PATH }/static/css/ie10-viewport-bug-workaround.css" rel="stylesheet">

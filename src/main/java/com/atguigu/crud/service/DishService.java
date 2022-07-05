@@ -2,9 +2,10 @@ package com.atguigu.crud.service;
 
 import com.atguigu.crud.entity.Dish;
 
+
 import java.util.List;
 
-public interface DishService {
+public interface DishService{
     /**
      * 通过ID查询单条数据
      *

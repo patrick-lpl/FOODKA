@@ -16,6 +16,11 @@ mybatis:
   mapper-locations: classpath:mapper/*Dao.xml
   type-aliases-package: com.huoguo.entity
 
+#mybatis-plus:
+#  global-config:
+#    db-config:
+#      id-type: auto
+
 pagehelper:
   helperDialect: mysql
   reasonable: true
